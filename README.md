@@ -1,4 +1,13 @@
 # Disaster Response Pipeline Project
+App is currently running at the following link. LINK_TO_HEROKU_DEPLOYMENT. 
+App main page:
+
+![Mani page](https://github.com/nauman-zahoor/disaster_response_pipeline_project/blob/main/images/webapp_index-page.png?raw=true)
+
+App Classification page:
+
+![Classification page](https://github.com/nauman-zahoor/disaster_response_pipeline_project/blob/main/images/webapp_classification_page.png?raw=true)
+
 
 ## Installation
 Install required libraries using requirements file using the following instruction.
@@ -46,6 +55,3 @@ From the Training set, app displays:
 Another functionality added to webapp is the ability to store previous classified messages and the corrosponding classification results. Both these are stored in a seperate db named historical_predictions.db in historic_predictions directory. Whenever someone classifies a message, input message and resutls are stored. 
 Whenever the index page is loaded, app reads from historic_predictions db and extracts the counts of previous classification categories and plots these. 
 ![](https://github.com/nauman-zahoor/disaster_response_pipeline_project/blob/main/images/historical_prediction_categories.png?raw=true)
-
-
-### Heroku deployment:
