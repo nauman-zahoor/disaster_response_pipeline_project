@@ -1,4 +1,4 @@
-# Disaster Response Pipeline Project
+Disaster Response Pipeline Project
 
 ## Installation
 Install required libraries using requirements file using the following instruction.
@@ -33,6 +33,9 @@ Model is then initialised. Model consists of a pipeline that first transforms da
 Model is then trained on trianing data and evaluated on test data and model is saved.
 
 ### Webapp:
-
+Webapp's main page displays charts from training set and Historical classifications.
+From the Training set, app displays:
+1. Distribution of message genres present in training data.
+![](https://github.com/nauman-zahoor/disaster_response_pipeline_project/blob/main/images/distribution of message gemres.png)
 
 ### Heroku deployment:
