@@ -18,6 +18,8 @@ import os
 import nltk
 from sklearn.metrics import classification_report
 
+from sklearn.model_selection import ParameterGrid
+
 #from sklearn.externals import joblib
 import joblib
 import pickle
@@ -98,11 +100,14 @@ def build_model():
         #'CountVectorizer__max_df': (0.5, 0.75, 1.0),
         #'clf__estimator__max_features': (None, 5000, 10000),
         #'TfidfTransformer__use_idf': (True, False),
-        #'clf__estimator__n_estimators': [ 100, 200,300,400],
+        'clf__estimator__n_estimators': [ 100, 200,300,400],
         #'clf__estimator__min_samples_split': [2, 3, 4],
         'clf__estimator__n_jobs':[-1],
     }
-    cv = GridSearchCV(pipeline, param_grid=parameters)
+    cv = GridSearchCV(pipeline, param_grid=parameters,verbose=10)
+    #lets see how many grid points are there
+    grid = ParameterGrid(parameters)
+    print (f"The total number of parameters-combinations is: {len(grid)}")
     return cv
 
     
@@ -137,12 +142,6 @@ def save_model(model, model_filepath):
     #pickle.dump(model, open(model_filepath, 'wb'))
     joblib.dump(model,  model_filepath,compress=3)
     #joblib.dump(model, 'your_filename.pkl.z')   # zlib
-
-
-    loaded_model = pickle.load(open(model_filepath, 'rb'))
-    print('Reults are: ',str(loaded_model.predict(['Hi this is a test'])[0]))
-    
-    
 
 
 def main():
