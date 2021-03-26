@@ -17,8 +17,6 @@ def load_data(messages_filepath, categories_filepath):
 
 	'''
 
-
-
 	messages = pd.read_csv(messages_filepath,encoding = 'utf-8')
 	categories = pd.read_csv(categories_filepath,encoding = 'ascii')
 	
@@ -73,8 +71,7 @@ def clean_data(df):
 
 	# cleaning
 	df = df[df.related!=2]
-	#df = df.drop(['original'], axis=1)
-
+	
 	return df
 
 
