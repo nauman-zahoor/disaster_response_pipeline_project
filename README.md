@@ -51,6 +51,8 @@ From the Training set, app displays:
 ![](https://github.com/nauman-zahoor/disaster_response_pipeline_project/blob/main/images/English_vs_nonenglish_messages.png?raw=true)
 3. Distribution of Output Categoreis.
 ![](https://github.com/nauman-zahoor/disaster_response_pipeline_project/blob/main/images/output_category_distribution.png?raw=true)
+4. Features Correlation Matrix
+![](https://github.com/nauman-zahoor/disaster_response_pipeline_project/blob/main/images/fearures_correlation.png?raw=true)
 
  
 Another functionality added to webapp is the ability to store previous classified messages and the corrosponding classification results. Both these are stored in a seperate db named historical_predictions.db in historic_predictions directory. Whenever someone classifies a message, input message and resutls are stored. 
