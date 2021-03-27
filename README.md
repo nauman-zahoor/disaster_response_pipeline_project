@@ -1,5 +1,5 @@
 # Disaster Response Pipeline Project
-App is currently running at the following link. LINK_TO_HEROKU_DEPLOYMENT. 
+App is currently running at the following link. https://disaster-relief-nauman.herokuapp.com. 
 
 App main page:
 
