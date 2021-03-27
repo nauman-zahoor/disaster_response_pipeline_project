@@ -6,7 +6,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from flask import Flask
 from flask import render_template, request, jsonify
-from plotly.graph_objs import Bar, Pie
+from plotly.graph_objs import Bar, Pie, Heatmap
 from sqlalchemy import create_engine
 import joblib
 import re
@@ -141,6 +141,14 @@ def index():
     englist_nonenglish[0] = englist_nonenglish[0]-englist_nonenglish[1]
     englist_nonenglish_counts = englist_nonenglish
     englist_nonenglish_names = list(englist_nonenglish.index)
+    
+    
+    # corelation of output categories
+    df_cats = df[df.columns[4:]]
+    corr = df_cats.corr()
+    
+    corr_values = corr.values
+    corr_names = list(corr.index)
 
     
     # create visuals
@@ -192,13 +200,31 @@ def index():
             ],
 
             'layout': {
-                'title': 'English Text vs Non English text count in training data',
+                'title': 'English vs Non English messages in training data',
                 'yaxis': {
                     'title': "Count"
                 },
                 'xaxis': {
                     'title': "Language"
                 }
+            }
+        },
+
+        # corr plot
+         {
+            'data': [
+                Heatmap(
+                    x=corr_names,
+                    y = corr_names,
+                    z=corr_values,
+                )
+            ],
+
+            'layout': {
+                'title': 'Features Correlation Matrix',
+                'width': 1200,
+                 'height': 900,
+              
             }
         },
         # TODO: Add graph for historical prediction counts
@@ -262,6 +288,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
 
