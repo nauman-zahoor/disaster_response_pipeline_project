@@ -25,7 +25,6 @@ def tokenize(text):
     text: string containing input text
     RETURNS:
     clean_tokens: list of tokens
-
     '''
     detected_urls = re.findall(url_regex, text)
     for url in detected_urls:
@@ -42,7 +41,15 @@ def tokenize(text):
     return clean_tokens
 
 
+
 def load_data_from_db_and_create_db_if_not_exist(path):
+    ''' Function that loads data from classification history db. If 
+    that db is missing then creates it with proper schema.
+    INPUT:
+    path: db path
+    RETURNS:
+    df: date read from db
+    '''
     try:
         print('trying to find db')
         engine = create_engine('sqlite:///'+path)
@@ -68,6 +75,15 @@ def load_data_from_db_and_create_db_if_not_exist(path):
 
 
 def save_classification_results(query,classification_labels,db_historical_classifications_path):
+    ''' Function that savws classification results in db.
+    INPUT:
+    query: Input query string to be classified 
+    classification_labels: classification results
+    db_historical_classifications_path: db path
+    RETURNS:
+    1: if successfull
+    0: if not successfull
+    '''
     try:
         conn = sqlite3.connect(db_historical_classifications_path)
         cur = conn.cursor()
