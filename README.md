@@ -1,5 +1,5 @@
 # Disaster Response Pipeline Project
-
+App is live at: https://disaster-relief-nauman.herokuapp.com
 
 ## Installation
 Install required libraries using requirements file using the following instruction.
