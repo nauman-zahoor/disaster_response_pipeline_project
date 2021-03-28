@@ -8,6 +8,7 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.metrics import confusion_matrix
 from sklearn.multioutput import MultiOutputClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -93,19 +94,18 @@ def build_model():
     '''
     pipeline = Pipeline([ ('CountVectorizer',CountVectorizer(tokenizer=tokenize)),
                          ('TfidfTransformer',TfidfTransformer()),
-                         ('clf',MultiOutputClassifier(RandomForestClassifier()) )
+                         ('clf',MultiOutputClassifier(AdaBoostClassifier() ) )
                     ])
 
     # Uncoment below parameters to serch more parameters. Just note that it will increase training time
     parameters = {
-        #'CountVectorizer__ngram_range': ((1, 1), (1, 2)),
-        #'CountVectorizer__max_df': (0.5, 0.75, 1.0),
-        #'clf__estimator__max_features': (None, 5000, 10000),
-        #'TfidfTransformer__use_idf': (True, False),
-        'clf__estimator__n_estimators': [ 100, 200,300],
-        'clf__estimator__min_samples_split': [2, 3, 4],
-        'clf__estimator__n_jobs':[-1],
+        #'CountVectorizer__ngram_range': ((1, 1), (1, 2)), # best(1,2)
+        #'CountVectorizer__max_df': (0.5, 0.75, 1.0),#best0.75
+        #'clf__estimator__max_features': (None, 5000, 10000), #best5000
+        'clf__estimator__n_estimators': [50,100,150], # best100
+        'clf__estimator__learning_rate' : [0.5,0.75,1,1.25], # best0.75
     }
+    print('\n\n########################\n\n',pipeline.get_params(),'\n\n########################\n\n')
     cv = GridSearchCV(pipeline, param_grid=parameters,verbose=10)
     #lets see how many grid points are there
     grid = ParameterGrid(parameters)
