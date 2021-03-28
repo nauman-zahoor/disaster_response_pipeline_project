@@ -95,13 +95,15 @@ def build_model():
                          ('TfidfTransformer',TfidfTransformer()),
                          ('clf',MultiOutputClassifier(RandomForestClassifier()) )
                     ])
+
+    # Uncoment below parameters to serch more parameters. Just note that it will increase training time
     parameters = {
         #'CountVectorizer__ngram_range': ((1, 1), (1, 2)),
         #'CountVectorizer__max_df': (0.5, 0.75, 1.0),
         #'clf__estimator__max_features': (None, 5000, 10000),
         #'TfidfTransformer__use_idf': (True, False),
-        'clf__estimator__n_estimators': [ 100, 200,300,400],
-        #'clf__estimator__min_samples_split': [2, 3, 4],
+        'clf__estimator__n_estimators': [ 100, 200,300],
+        'clf__estimator__min_samples_split': [2, 3, 4],
         'clf__estimator__n_jobs':[-1],
     }
     cv = GridSearchCV(pipeline, param_grid=parameters,verbose=10)
