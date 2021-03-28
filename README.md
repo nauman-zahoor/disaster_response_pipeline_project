@@ -34,7 +34,8 @@ Model is then initialised. Model consists of a pipeline that first transforms da
 Model is then trained on trianing data and evaluated on test data and model is saved.
 
 ### Webapp:
-Webapp's main page displays charts from training set and Historical classifications.
+Webapp's main page displays charts from Training set and Historical classifications as discussed below.
+#### From Training set
 From the Training set, app displays:
 1. Distribution of message genres present in training data.
 ![](https://github.com/nauman-zahoor/disaster_response_pipeline_project/blob/main/images/distribution_of_message_genres.png?raw=true)
@@ -46,6 +47,7 @@ From the Training set, app displays:
 ![](https://github.com/nauman-zahoor/disaster_response_pipeline_project/blob/main/images/fearures_correlation.png?raw=true)
 
  
+#### From Historical Predictions
 Another functionality added to webapp is the ability to store previous classified messages and the corrosponding classification results. Both these are stored in a seperate db named historical_predictions.db in historic_predictions directory. Whenever someone classifies a message, input message and resutls are stored. 
 Whenever the index page is loaded, app reads from historic_predictions db and extracts the counts of previous classification categories and plots these. 
 ![](https://github.com/nauman-zahoor/disaster_response_pipeline_project/blob/main/images/historical_prediction_categories.png?raw=true)
