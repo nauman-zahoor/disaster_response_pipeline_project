@@ -1,6 +1,11 @@
 # Disaster Response Pipeline Project
 App is live at: https://disaster-relief-nauman.herokuapp.com
 
+## Motivation
+Motivation behind this project is to learn how a machine learning project for real life scenario is developed from start i.e. collecting data to delpoying it. 
+This project builds a machine learning classifier and deploys it on a webapp. Webapp uses model and classifies incoming messages (in our secnario: disaster realted) in to categories like Water,Refugees,Floods etc. so that disaster relief workers can identify who needs what automatically.
+
+
 ## Installation
 Install required libraries using requirements file using the following instruction.
 ```
@@ -61,4 +66,16 @@ App main page:
 App Classification page:
 
 ![Classification page](https://github.com/nauman-zahoor/disaster_response_pipeline_project/blob/main/images/webapp_classification_page.png?raw=true)
+
+## Authors
+
+* [Nauman Zahoor](https://github.com/nauman-zahoor/)
+
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Acknowledgements
+
+* [Udacity](https://www.udacity.com/)
+* [Figure Eight](https://www.figure-eight.com/) 
 
